@@ -3,13 +3,15 @@ FROM ubuntu:22.04
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-        sudo \
-        ca-certificates \
-        vim \
-        curl \
-        build-essential \
-        wget \
-        && \
+            sudo \
+            ca-certificates \
+            build-essential \
+            automake \
+            cmake \
+            vim \
+            curl \
+            wget \
+            && \
     rm -rf /var/lib/apt/lists/* && \
     groupadd -g 10001 nosotros && \
     useradd -ms /bin/bash --uid 10001 --gid 10001 yo && \
@@ -30,7 +32,6 @@ RUN mkdir -p ~/.cargo/bin && \
 RUN mkdir -p ~/.config && \
     touch ~/.config/starship.toml && \
     echo 'export PATH=~/.cargo/bin:$PATH' >> ~/.bashrc && \
-    echo 'eval "$(starship init bash)"' >> ~/.bashrc && \
-    /home/yo/.cargo/bin/starship preset pastel-powerline -o ~/.config/starship.toml
+    echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 CMD ["/bin/bash"]

@@ -1,8 +1,8 @@
 build:
-    docker build -t atareao/sandbox:ubuntu .
+    docker build -t jfmisuraca/sandbox:ubuntu .
 
 push:
-    docker push --all-tags atareao/sandbox
+    docker push --all-tags jfmisuraca/sandbox
 
 run:
-    docker run -it --rm atareao/sandbox:ubuntu
+    docker run -it --rm jfmisuraca/sandbox:ubuntu
